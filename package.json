@@ -1,0 +1,13 @@
+{
+  "name": "node-delay-http",
+  "version": "1.0.0",
+  "description": "HTTP server that responds slowly.",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Tay Ray Chuan <rctay89@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.x"
+  }
+}
