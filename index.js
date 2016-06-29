@@ -6,6 +6,9 @@ var argv = require('yargs')
     type: 'number',
     default: 3000
   })
+  .option('host', {
+    default: '::1'
+  })
   .alias('h', 'help')
   .help('help')
   .argv;
@@ -25,7 +28,7 @@ app.get('/', function (req, res) {
   };
 });
 
-app.listen(argv.port, function () {
-  console.log('Listening on port '+argv.port+'...');
+app.listen(argv.port, argv.host, function () {
+  console.log('Listening on '+argv.host+', port '+argv.port+'...');
 });
 
