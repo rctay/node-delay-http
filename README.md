@@ -4,8 +4,13 @@ HTTP server that responds slowly.
 
 ## Example
 
-    $ npm start
+    $ npm start &
     $ curl localhost:3000
+    hi
+    hi
+    ...
+    $ fg
+    ^C
 
 ## Usage
 
