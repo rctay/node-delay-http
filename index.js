@@ -9,22 +9,38 @@ var argv = require('yargs')
   .option('host', {
     default: '::1'
   })
+  .option('f', {
+    alias: 'frequency',
+    type: 'number',
+    description: 'number of times to repeat message',
+    default: 10
+  })
+  .option('period', {
+    type: 'number',
+    description: 'duration between each repeat (in milliseconds)',
+    default: 1000
+  })
+  .option('message', {
+    alias: 'm',
+    description: 'message to be repeatedly sent in the response',
+    default: 'hi'
+  })
   .alias('h', 'help')
   .help('help')
   .argv;
 var app = express();
 
 app.get('/', function (req, res) {
-  var i = 10;
+  var i = argv.frequency;
   cb();
   return;
   function cb() {
-    res.write("hi\n");
+    res.write(argv.message+'\n');
     if (!i--) {
       res.end();
       return;
     }
-    setTimeout(cb, 1000);
+    setTimeout(cb, argv.period);
   };
 });
 
